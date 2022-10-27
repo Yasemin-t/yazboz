@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+      />
+
+    <title>YazBoz</title>
+  </head>
+
+  <!-- oyun sayısı -->
+
+  <body style="background-color: #224455;">
+    <div class="divbos" id="sil">
+      <div class="input-group mt-3 ">
+
+        <select class="form-select" id="inputGroupSelect01">
+          <option id="secim1" value="3">3</option>
+          <option id="secim2" value="7">7</option>
+          <option id="secim3" value="11">11</option>
+          <option id="secim4" value="15">15</option>
+        </select>
+        <button id="saveBut" class="btn btn-dark" onclick="getLaps()">SAVE</button>
+      </div>
+
+      <!-- 1.oyuncu -->
+      <div class="form-floating mb-3 w-25" style="position: absolute;
+        margin-left: 41%; margin-top: 5%" ;>
+        <input class="form-check-input" type="checkbox" id="1">
+        <input type="file" id="input1">
+        <textarea class="form-control" placeholder="Leave a comment here"
+          id="oyuncuName_1"></textarea>
+        <label for="oyuncuName_1">1.oyuncu</label>
+      </div>
+
+      <!-- 2.oyuncu -->
+      <div class="form-floating mb-3 w-25" style="position: absolute;
+        margin-left: 5%; margin-top: 17%;">
+        <input class="form-check-input" type="checkbox" id="2">
+        <input type="file" id="input1">
+        <textarea class="form-control" placeholder="Leave a comment here"
+          id="oyuncuName_2"></textarea>
+        <label for="oyuncuName_2">2.oyuncu</label>
+      </div>
+
+
+      <!-- 3.oyuncu -->
+      <div class="form-floating mb-3 w-25" style="position: absolute;
+        margin-left: 41%; margin-top: 28%;">
+        <input class="form-check-input" type="checkbox" id="3">
+        <input type="file" id="input1">
+        <textarea class="form-control" placeholder="Leave a comment here"
+          id="oyuncuName_3"></textarea>
+        <label for="oyuncuName_3">3.oyuncu</label>
+      </div>
+
+      <!-- 4.oyuncu -->
+      <div class="form-floating mb-3 w-25" style="position: absolute;
+        margin-left: 74%; margin-top: 17%;">
+        <input class="form-check-input" type="checkbox" id="4">
+        <input type="file" id="input1">
+        <textarea class="form-control" placeholder="Leave a comment here"
+          id="oyuncuName_4"></textarea>
+        <label for="oyuncuName_4">4.oyuncu</label>
+      </div>
+
+
+      <!-- oyuna başla btn -->
+      <div type="button" class="btn btn-primary" style="position: absolute;
+        margin-left: 48%; margin-top: 35%;" onclick="oyun()">Oyuna başla</div>
+    </div>
+    <!-- table -->
+    <div class="col-12">
+      <table class="table" id="table">
+        <thead>
+          <th><p class="" id="players-table1"></p></th>
+          <th><p class="" id="players-table2"></p></th>
+          <th><p class="" id="players-table3"></p></th>
+          <th><p class="" id="players-table4"></p></th>
+        </thead>
+        <tbody id="table-skor"></tbody>
+      </table>
+    </div>
+
+
+
+    <!-- js -->
+    <script>
+
+        function oyun(){
+          var plNm_1 = document.getElementById("oyuncuName_1").value;
+          var plNm_2 = document.getElementById("oyuncuName_2").value;
+          var plNm_3 = document.getElementById("oyuncuName_3").value;
+          var plNm_4 = document.getElementById("oyuncuName_4").value;
+          document.getElementById('players-table1').innerHTML = plNm_1;
+          document.getElementById('players-table2').innerHTML = plNm_2;
+          document.getElementById('players-table3').innerHTML = plNm_3;
+          document.getElementById('players-table4').innerHTML = plNm_4;
+         if(plNm_1==""){
+          alert("lütfen 1.oyuncu ismini giriniz!"); 
+          return;
+         }
+        else if(plNm_2==""){
+          alert("lütfen 2.oyuncu ismini giriniz!");
+          return;
+         }
+        else if(plNm_3==""){
+          alert("lütfen 3.oyuncu ismini giriniz!");
+          return;
+         }
+         else if (plNm_4==""){
+          alert("lütfen 4.oyuncu ismini giriniz!");
+          return;
+         }
+      
+        
+
+
+              let degisken1=document.getElementById('secim1').getAttribute('value');
+              let degisken2=document.getElementById('secim2').getAttribute('value');
+              let degisken3=document.getElementById('secim3').getAttribute('value');
+              let degisken4=document.getElementById('secim4').getAttribute('value');
+              console.log(degisken1);
+     
+
+              
+           for(let i=0;i<3;i++){
+           document.createElement("tr");
+       table-skor.appendChild(tr);
+
+
+            for(let j=0;j<4;j++){
+            document.createElement("td")
+            tr.appendChild(td);
+           }
+          }
+        const element = document.getElementById('sil');
+        element.remove();
+       
+        }
+function tableCreate() {
+ 
+  var body = document.getElementsByTagName("body")[0];
+
+  var tbl = document.createElement("table");
+  var tblBody = document.createElement("tbody");
+
+  for (var j = 0; j <= 2; j++) {
+    var row = document.createElement("tr");
+
+    for (var i = 0; i < 2; i++) {
+  
+      var cell = document.createElement("td");
+      var cellText = document.createTextNode("cell is row " + j + ", column " + i);
+
+      cell.appendChild(cellText);
+      row.appendChild(cell);
+    }
+
+    tblBody.appendChild(row);
+  }
+
+  tbl.appendChild(tblBody);
+  body.appendChild(tbl);
+  tbl.setAttribute("border", "2");
+}
+
+
+        </script>
+  </body>
+</html>
